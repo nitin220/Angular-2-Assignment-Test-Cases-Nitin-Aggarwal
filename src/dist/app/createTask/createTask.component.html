@@ -1,0 +1,33 @@
+<form class=container xmlns="http://www.w3.org/1999/html" (ngSubmit)="pushTask()">
+  <h1>Create Task</h1>
+  <input type="date" required
+         [(ngModel)]="task.date" name="date" #date="ngModel">
+  <div [hidden]="date.valid || date.pristine"
+       class="alert alert-danger">
+    Date is required
+  </div>
+  <input type="text" placeholder="Title" required
+         [(ngModel)]="task.title" name="title" #title="ngModel">
+  <div [hidden]="title.valid || title.pristine"
+       class="alert alert-danger">
+    Title is required
+  </div>
+  <input type="text" placeholder="Description" required
+         [(ngModel)]="task.description" name="description" #description="ngModel">
+  <div [hidden]="description.valid || description.pristine"
+       class="alert alert-danger">
+    Description is required
+  </div>
+  <select name="drop" required
+          [(ngModel)]="task.priority" class="select picker" #dropDown="ngModel">
+    <option value="" disabled selected>Select your Priority</option>
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="high">High</option>
+  </select><br>
+  <div [hidden]="dropDown.valid || dropDown.pristine"
+       class="alert alert-danger">
+    Priority is required
+  </div>
+  <input class="btn btn-success" type="submit" value="Add Task"/>
+</form>

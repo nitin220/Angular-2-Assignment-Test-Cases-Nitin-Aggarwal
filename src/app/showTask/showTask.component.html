@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Created Task</h1>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Priority</th>
+      <th>ID</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let task of myTask;let index = index">
+      <td>{{task.date}}</td>
+      <td>{{task.title}}</td>
+      <td>{{task.description}}</td>
+      <td>{{task.priority}}</td>
+      <td>{{task._id}}</td>
+      <td><input type="button" value="Edit" (click)="editTask(index)"></td>
+      <td><input type="button" value="Done" (click)="deleteByIndex(index)"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
